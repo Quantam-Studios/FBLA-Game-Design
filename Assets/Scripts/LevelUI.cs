@@ -15,8 +15,8 @@ public class LevelUI : MonoBehaviour
     public float speedRotate;
     private Quaternion target = new Quaternion(0f, 0f, 0f, 1f);
 
-    private Quaternion left = new Quaternion(0f, 0f, -0.7071068f, 0.7071068f);
-    private Quaternion right = new Quaternion(0f, 0f, 0.7071068f, 0.7071068f);
+    public Quaternion left;
+    public Quaternion right;
     public Button LeftButton;
     public Button RightButton;
 
@@ -34,6 +34,14 @@ public class LevelUI : MonoBehaviour
     //End level
     public GameObject EndLevelMenu;
     public Text TotalMovesText;
+    public float GivenMoves;
+    public Text WinLoseText;
+    public GameObject NextLevelButton;
+
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
 
     private void Start()
     {
@@ -49,7 +57,7 @@ public class LevelUI : MonoBehaviour
     IEnumerator RotateObjectLeft()
     {
         bool ltarget = false;
-        target = CurrentRotation * left;
+        target = left * CurrentRotation;
         Moves += 1;
         //Start rotating
         while (ltarget == false)
@@ -97,14 +105,29 @@ public class LevelUI : MonoBehaviour
 
     void Update()
     {
+        //Update counters
         CurrentRotation = Level.transform.rotation;
         MovesText.text = "Moves: " + Moves;
         ItemsText.text = Items + " / " + TotalItems;
 
+        //Win condition
         if (Items == TotalItems)
         {
             EndLevelMenu.SetActive(true);
+            WinLoseText.text = "You Won!";
             TotalMovesText.text = "Total Moves: " + Moves;
+            NextLevelButton.SetActive(true);
+            Time.timeScale = 0;
+        }
+
+        //Lose condition
+        if (Moves > GivenMoves)
+        {
+            EndLevelMenu.SetActive(true);
+            WinLoseText.text = "You Lost!";
+            TotalMovesText.text = "Too Many Moves!";
+            NextLevelButton.SetActive(false);
+            Time.timeScale = 0;
         }
     }
 
@@ -121,6 +144,13 @@ public class LevelUI : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene(0);
+        int ActiveScene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(ActiveScene);
+    }
+
+    public void NextLevel()
+    {
+        int ActiveScene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(ActiveScene + 1);
     }
 }
