@@ -15,8 +15,8 @@ public class LevelUI : MonoBehaviour
     public float speedRotate;
     private Quaternion target = new Quaternion(0f, 0f, 0f, 1f);
 
-    private Quaternion left = new Quaternion(0f, 0f, -0.7071068f, 0.7071068f);
-    private Quaternion right = new Quaternion(0f, 0f, 0.7071068f, 0.7071068f);
+	public Quaternion left;
+	public Quaternion right;
     public Button LeftButton;
     public Button RightButton;
 
