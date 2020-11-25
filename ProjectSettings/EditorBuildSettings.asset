@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/pentagon.unity
     guid: 191a359f96672c54c9118591e33f73f3
+  - enabled: 1
+    path: Assets/Scenes/hexagon.unity
+    guid: ed62f480a2d835445b2aac7a415af16e
   m_configObjects: {}
