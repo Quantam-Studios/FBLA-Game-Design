@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/hexagon.unity
     guid: ed62f480a2d835445b2aac7a415af16e
+  - enabled: 1
+    path: Assets/Scenes/Heptagon.unity
+    guid: df93481cd7fa32a45bd10202dc64d819
   m_configObjects: {}
