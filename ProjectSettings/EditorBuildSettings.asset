@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Heptagon.unity
     guid: df93481cd7fa32a45bd10202dc64d819
+  - enabled: 1
+    path: Assets/Scenes/octagon.unity
+    guid: ed40f60858cf60e49a619525874fcb19
+  - enabled: 1
+    path: Assets/Scenes/nonagon.unity
+    guid: 9e61fb8d5d1c4b64995d7b5f64f659eb
   m_configObjects: {}
