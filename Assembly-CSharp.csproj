@@ -53,8 +53,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\LevelUI.cs" />
     <Compile Include="Assets\Scripts\LevelSelection.cs" />
+    <Compile Include="Assets\Scripts\LevelUI.cs" />
+    <Compile Include="Assets\Scripts\MainMenuEffect.cs" />
+    <Compile Include="Assets\Scripts\EffectShapes.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -49,7 +49,7 @@ public class LevelUI : MonoBehaviour
         Moves = 0;
         rb = Player.GetComponent<Rigidbody2D>();
         rb.gravityScale = 1;
-        MovesText.text = "Moves: 0";
+        MovesText.text = "Moves: 0 / " + GivenMoves;
         ItemsText.text = "0 / " + TotalItems;
         EndLevelMenu.SetActive(false);
     }
@@ -107,8 +107,8 @@ public class LevelUI : MonoBehaviour
     {
         //Update counters
         CurrentRotation = Level.transform.rotation;
-        MovesText.text = "Moves: " + Moves;
-        ItemsText.text = Items + " / " + TotalItems;
+        MovesText.text = "Moves: " + Moves + " / " + GivenMoves;
+        ItemsText.text = "Items: " + Items + " / " + TotalItems;
 
         //Win condition
         if (Items == TotalItems)
@@ -152,5 +152,10 @@ public class LevelUI : MonoBehaviour
     {
         int ActiveScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(ActiveScene + 1);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
